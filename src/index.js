@@ -12,3 +12,5 @@ export {
   checkAuthOrRedirect,
   authMiddlewares,
 } from "./auth";
+
+export { setupProxy } from "./proxy";

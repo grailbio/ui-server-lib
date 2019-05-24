@@ -28,6 +28,7 @@
     "@babel/runtime": "^7.4.3",
     "@grail/lib": ">=0.0.0",
     "googleapis": "^39.2.0",
+    "http-proxy-middleware": "^0.19.1",
     "http-status-codes": "^1.3.2",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
@@ -84,7 +85,8 @@
       "!**/index.js",
       "!**/mocks/**",
       "!src/**/passport/**",
-      "!src/**/middleware.js"
+      "!src/**/middleware.js",
+      "!src/**/proxy"
     ],
     "coverageThreshold": {
       "src/**/*.js": {
