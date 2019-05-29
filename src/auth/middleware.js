@@ -52,7 +52,7 @@ export const checkAuthOrRedirect = (googleAuthConfig: GoogleAuthConfig) => (
 ) => {
   refreshAuthIfNecessary(googleAuthConfig)(req, res, () => {
     if (!req.isAuthenticated()) {
-      res.redirect(`/sign-in?redirectTo=${req.url}`);
+      res.redirect(`/sign-in?redirectTo=${req.originalUrl}`);
       return;
     }
     next();

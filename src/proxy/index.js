@@ -2,7 +2,7 @@
 import HttpStatus from "http-status-codes";
 import proxy from "http-proxy-middleware";
 
-export const setupProxy = (path: string, target: string, proxyOptions: Object = {}) => {
+export const setupProxy = (path: string | Array<string>, target: string, proxyOptions: Object = {}) => {
   function onError(error, req, res) {
     console.error(error);
     res.writeHead(HttpStatus.SERVICE_UNAVAILABLE, {
