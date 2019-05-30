@@ -6,3 +6,5 @@ export {
 export {
   refreshAuthIfNecessary, checkAuth, checkAuthOrRedirect, authMiddlewares,
 } from "./middleware";
+
+export { AUTH_HEADER, hasAuthHeader } from "./utils";

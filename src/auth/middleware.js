@@ -1,12 +1,17 @@
 // @flow
 import HttpStatus from "http-status-codes";
+import { hasAuthHeader } from "./utils";
 import { refreshAccessToken } from "./passport";
 
-export const refreshAuthIfNecessary = (googleAuthConfig: GoogleAuthConfig) => (
+export const refreshAuthIfNecessary = (googleAuthConfig: GoogleAuthConfig, options: AuthMiddlewareOptions = {}) => (
   req: $Subtype<express$Request>,
   res: express$Response,
   next: express$NextFunction,
 ) => {
+  if (options.allowAuthHeader && hasAuthHeader(req)) {
+    next();
+    return;
+  }
   const { user } = req;
   if (!user || !user.refreshToken) {
     next();
@@ -29,12 +34,16 @@ export const refreshAuthIfNecessary = (googleAuthConfig: GoogleAuthConfig) => (
   next();
 };
 
-export const checkAuth = (googleAuthConfig: GoogleAuthConfig) => (
+export const checkAuth = (googleAuthConfig: GoogleAuthConfig, options: AuthMiddlewareOptions = {}) => (
   req: $Subtype<express$Request>,
   res: express$Response,
   next: express$NextFunction,
 ) => {
   refreshAuthIfNecessary(googleAuthConfig)(req, res, () => {
+    if (options.allowAuthHeader && hasAuthHeader(req)) {
+      next();
+      return;
+    }
     if (!req.isAuthenticated()) {
       res.status(HttpStatus.UNAUTHORIZED).json({
         message: "Unauthorized",
@@ -45,12 +54,16 @@ export const checkAuth = (googleAuthConfig: GoogleAuthConfig) => (
   });
 };
 
-export const checkAuthOrRedirect = (googleAuthConfig: GoogleAuthConfig) => (
+export const checkAuthOrRedirect = (googleAuthConfig: GoogleAuthConfig, options: AuthMiddlewareOptions = {}) => (
   req: $Subtype<express$Request>,
   res: express$Response,
   next: express$NextFunction,
 ) => {
   refreshAuthIfNecessary(googleAuthConfig)(req, res, () => {
+    if (options.allowAuthHeader && hasAuthHeader(req)) {
+      next();
+      return;
+    }
     if (!req.isAuthenticated()) {
       res.redirect(`/sign-in?redirectTo=${req.originalUrl}`);
       return;

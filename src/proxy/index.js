@@ -1,8 +1,9 @@
 // @flow
 import HttpStatus from "http-status-codes";
 import proxy from "http-proxy-middleware";
+import { AUTH_HEADER } from "../auth";
 
-export const setupProxy = (path: string | Array<string>, target: string, proxyOptions: Object = {}) => {
+export const setupProxy = (target: string, proxyOptions: Object = {}) => {
   function onError(error, req, res) {
     console.error(error);
     res.writeHead(HttpStatus.SERVICE_UNAVAILABLE, {
@@ -23,7 +24,7 @@ export const setupProxy = (path: string | Array<string>, target: string, proxyOp
     );
   }
   function onProxyReq(proxyReq, req, res) {
-    if (proxyReq.getHeader("authorization")) {
+    if (proxyReq.getHeader(AUTH_HEADER)) {
       console.info("proxy", "Using header authorization");
     } else if (req.isAuthenticated()) {
       // Add authorization token from session.
@@ -37,7 +38,7 @@ export const setupProxy = (path: string | Array<string>, target: string, proxyOp
       });
     }
   }
-  const appProxy = proxy(path, {
+  const appProxy = proxy({
     target,
     onError,
     onProxyReq,
