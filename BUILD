@@ -6,6 +6,7 @@ filegroup(
         ],
         exclude = [
             "node_modules/**",
+            "dist/**",
             "coverage/**",
             "cypress/**",
             "flow-typed/**",
