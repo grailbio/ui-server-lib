@@ -2,7 +2,7 @@ import { type minimistOutput } from "minimist";
 
 declare type CommandLineArgumentProp = {
   name: string,
-  defaultValue?: string | boolean,
+  defaultValue?: string | boolean | number,
   valuePlaceholderText?: string,
   isRequired?: boolean,
   configType?: string,
