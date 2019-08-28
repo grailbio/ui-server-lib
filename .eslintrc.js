@@ -4,7 +4,7 @@ module.exports = {
     es6: true,
     jest: true,
   },
-  extends: ["@grail/eslint-config-grail/src/back-end", "@grail/eslint-config-grail/src/flow"],
+  extends: ["@grailbio/eslint-config-grail/src/back-end", "@grailbio/eslint-config-grail/src/flow"],
   plugins: ["flowtype", "import", "filenames"],
   rules: {
     "no-restricted-imports": [
