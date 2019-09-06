@@ -1,14 +1,18 @@
 ## Contents
 
-The `@grail/server-lib` module holds both utility functions and constants used
+The `@grailbio/server-lib` module holds both utility functions and constants used
 across GRAIL UI server applications.
 
 ## Contributing
 
-This project is open sourced. All content must be non-proprietary. For example:
+This is an open source package. Initial approval by SMEs in https://phabricator.grailbio.com/T26323
+
+All content must be non-proprietary. For example:
 
 - Do not include GRAIL assets, like GRAIL Logo, or commercially sourced images.
 - Do not include content that has trade secrets or anything that should remain internal to GRAIL.
+
+Also, all content must be compatible with the contents of the Apache 2.0 license, as defined in `LICENSE` file.
 
 For common private GRAIL code, use `@grail/common-private` or other internal locations.
 
@@ -46,6 +50,11 @@ Recommend turning on 2FA.
 To publish:
 
 - Bump the package version following semantic versioning guidelines (https://semver.org/)
+- `yarn version --patch --no-git-tag-version`
 - For non-patch release, update `CHANGELOG.md` version.
 - `npm publish --access public`
   - Optionally, you can pass in 2FA code using `--otp ######`
+
+#### **Installation and Usage**
+
+- If using NPM packages: `yarn add @grailbio/lib @grailbio/server-lib`

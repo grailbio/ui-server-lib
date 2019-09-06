@@ -1,7 +1,7 @@
 // @flow
 import isArray from "lodash/isArray";
 import isEmpty from "lodash/isEmpty";
-import { sentenceCase } from "@grail/lib";
+import { sentenceCase } from "@grailbio/lib";
 
 /*
 Process command line arguments in the form of `key: optionalValue` into public and secret config values.

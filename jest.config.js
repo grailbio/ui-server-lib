@@ -21,5 +21,6 @@ module.exports = Object.assign(jestConfig, {
   },
   moduleNameMapper: {
     "^@grail/(.*)$": "<rootDir>/../$1/src",
+    "^@grailbio/(.*)$": "<rootDir>/../$1/src",
   },
 });

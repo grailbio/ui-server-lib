@@ -1,6 +1,7 @@
 {
-  "name": "@grail/server-lib",
-  "version": "1.0.1",
+  "name": "@grailbio/server-lib",
+  "version": "1.0.2",
+  "homepage": "https://github.com/grailbio/ui-server-lib",
   "scripts": {
     "build": "NODE_ENV=production yarn build:src && yarn build:flow && babel-node ./scripts/build.js",
     "build:flow": "flow-copy-source src dist",
@@ -46,7 +47,7 @@
     "prettier": "^1.18.2"
   },
   "peerDependencies": {
-    "@grail/lib": ">=1.0.0"
+    "@grailbio/lib": ">=1.1.11"
   },
   "lint-staged": {
     "linters": {
