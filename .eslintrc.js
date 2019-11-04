@@ -4,8 +4,13 @@ module.exports = {
     es6: true,
     jest: true,
   },
-  extends: ["@grailbio/eslint-config-grail/src/back-end", "@grailbio/eslint-config-grail/src/flow"],
-  plugins: ["flowtype", "import", "filenames"],
+  extends: [
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "@grailbio/eslint-config-grail/src/back-end",
+  ],
+  parser: "@typescript-eslint/parser",
+  plugins: ["import", "filenames", "@typescript-eslint"],
   rules: {
     "no-restricted-imports": [
       "error",
