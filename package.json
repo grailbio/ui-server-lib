@@ -46,7 +46,7 @@
     "husky": "^3.0.9",
     "jest": "^24.9.0",
     "jest-mock-console": "^1.0.0",
-    "lint-staged": "^10.0.0-0",
+    "lint-staged": "7.3.0",
     "prettier": "^1.18.2",
     "tsdx": "^0.11.0"
   },
