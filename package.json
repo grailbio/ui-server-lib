@@ -14,7 +14,6 @@
     "format": "prettier --write \"scripts/**/*.js\" && yarn lint-fix",
     "preinstall": "node -e 'if(!/yarn\\.js$/.test(process.env.npm_execpath))throw new Error(\"Use yarn install\")'",
     "precommit": "lint-staged",
-    "prepublish": "yarn build",
     "test": "tsdx test --watch",
     "test:staged": "tsdx test --coverage && echo --findRelatedTests does not work properly with coverage",
     "test-all": "tsdx test --coverage"
