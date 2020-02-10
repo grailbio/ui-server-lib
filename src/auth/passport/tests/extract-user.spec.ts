@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import curry from "lodash/curry";
-import merge from "lodash/merge";
-
+import { curry, merge } from "lodash";
 import { extractGoogleInfo, extractUser } from "../passport-utils";
 
 const baseUser = {

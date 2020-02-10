@@ -17,10 +17,6 @@ module.exports = {
       {
         paths: [
           {
-            name: "lodash",
-            message: 'Please import lodash functions directly, eg: import isEmpty from "lodash/isEmpty".',
-          },
-          {
             name: "@grailbio/components",
             message: "Please do not import @grailbio/components from @grail/server-lib.",
           },

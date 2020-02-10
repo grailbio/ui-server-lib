@@ -1,5 +1,4 @@
-import isArray from "lodash/isArray";
-import isEmpty from "lodash/isEmpty";
+import { isArray, isEmpty } from "lodash";
 import { sentenceCase } from "@grailbio/lib";
 
 type CommandLineArgumentProp = {

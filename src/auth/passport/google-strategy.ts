@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/camelcase */
 /* eslint-disable camelcase */
 import fetch from "node-fetch";
-import merge from "lodash/merge";
 import qs from "qs";
 import { GoogleAuthConfig, GoogleUserInfo, User, extractGoogleInfo, extractUser } from "./passport-utils";
+import { merge } from "lodash";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Request } from "express";
 import { google } from "googleapis";
