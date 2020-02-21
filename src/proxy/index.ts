@@ -1,6 +1,6 @@
 import HttpStatus from "http-status-codes";
-import proxy from "http-proxy-middleware";
 import { AUTH_HEADER } from "../auth";
+import { createProxyMiddleware } from "http-proxy-middleware";
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Request, Response } from "express";
 
@@ -44,7 +44,7 @@ export const setupProxy = (
       });
     }
   }
-  const appProxy = proxy({
+  const appProxy = createProxyMiddleware({
     target,
     onError,
     onProxyReq,
