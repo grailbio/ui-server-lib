@@ -8,7 +8,7 @@
     "build:client": "NODE_ENV=production yarn build:src",
     "start:client": "NODE_ENV=development yarn build:src --watch",
     "cover": "open coverage/lcov-report/index.html",
-    "flow": "yarn tsc --skipLibCheck",
+    "check-types": "yarn tsc --skipLibCheck",
     "lint": "yarn flow && tsdx lint src",
     "lint-fix": "yarn lint --fix",
     "format": "yarn lint-fix",
