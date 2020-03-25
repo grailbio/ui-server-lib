@@ -24,7 +24,7 @@ export const processCommandLineArgs = (
   const unprocessedArgumentNames = new Set(Object.keys(commandLineArguments));
 
   const configs = argumentProps
-    .map(argumentProp => {
+    .map((argumentProp) => {
       const { name, isRequired, defaultValue = true, valuePlaceholderText, configType = "public" } = argumentProp;
       // Remove expected arguments if they exist. Unexpected arguments may be optional, handled below.
       unprocessedArgumentNames.delete(name);
@@ -54,7 +54,7 @@ export const processCommandLineArgs = (
       return acc;
     }, {});
 
-  unprocessedArgumentNames.forEach(name => {
+  unprocessedArgumentNames.forEach((name) => {
     const value = commandLineArguments[name];
     if (value != null) {
       if (!isArray(value) || !isEmpty(value)) {
